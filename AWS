@@ -1,0 +1,9 @@
+----------------------------------------------------------------------------------------------------------
+  * API Gateway is a front door that allows clients to access backend services through the frontend *
+-----------------------------------------------------------------------------------------------------------
+
+API Gateway:
+------------
+           . Which helps you to setup and manage the API's and so it can handle traffic load,  
+                                                                                              it also take care'S of security, routing & monitoring
+           . so the team can focus on Deployement & backEnd reliability.
