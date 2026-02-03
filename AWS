@@ -7,3 +7,53 @@ API Gateway:
            . Which helps you to setup and manage the API's and so it can handle traffic load,  
                                                                                               it also take care'S of security, routing & monitoring
            . so the team can focus on Deployement & backEnd reliability.
+
+NOTE:
+       An API acts as a messenger that allows different software to communicate with each other and exchange information
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+WHAT CAN WE CREATE USING THE API GATEWAY ?                                                TYPES OF API'S : AWS provides
+
+. RESTfull  api                                                                               .  Get             . Head
+. websocket api                                                                               .  Put             . Options
+. containerized workload                                                                      .  Post            . Any
+. serverless workload                                                                         .  Patch
+                                                                                              .  Delete
+------------------------------------------------------------------
+ where can be used ?
+. weather app
+. health Care
+. govt system
+. Ticket Booking
+
+-----------------------------------------------------------------
+purpose of the API's: used to                 NOTE:  HTTP200 request was successfull. it shud get for all 
+
+    Get:    FETCH
+          fetch only data from the backend server
+
+   POST:    SAVE
+          save the data in backend server 
+
+ DELETE:     REMOVE
+         delete data from backend server
+
+  PATCH:     UPDATE
+          update the new data into backend server.                              ( chnaging name & emails )
+ 
+   PUT :     REPLACE                                                                      |
+          replace the current data completly with new in backend server                  same
+
+  HEAD :     CHECK
+         check info like size and type of reources in Backend Server's.
+
+OPTIONS:   PERFORM
+         will check which HTTP method ( GET,PUT,PATCH...) will be allowed to perform on certain resource in the backEnd server
+ 
+   ANY :   HANDLE
+         can handle any HTTP method ( GET,PUT,PATCH...) in backEnd server.
+
+
+       
+
+
+
