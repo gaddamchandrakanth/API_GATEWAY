@@ -254,7 +254,8 @@ steps:
 . copy the unique ID of ai-gateway and paste in cloudwatch log groups tosee logs 
 
 
-
+duration : 
+1:1:31
 
 
 
