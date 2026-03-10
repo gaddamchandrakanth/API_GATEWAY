@@ -11,13 +11,22 @@ API Gateway:
 NOTE:
        An API acts as a messenger that allows different software to communicate with each other and exchange information
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-WHAT CAN WE CREATE USING THE API GATEWAY ?                                                TYPES OF API'S : AWS provides
+TYPES:
 
-. RESTfull  api                                                                               .  Get             . Head
-. websocket api                                                                               .  Put             . Options
-. containerized workload                                                                      .  Post            . Any
-. serverless workload                                                                         .  Patch
-                                                                                              .  Delete
+ . REST api                                                |
+ . HTTP api                                                |    here lambda will be a backend [ when we integrate with api-gateway ]
+ . websocket api                                           |       
+ . private api                                             | 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+TYPES OF API'S : AWS provides
+                                 
+   .  Get             . Head
+   .  Put             . Options
+   .  Post            . Any
+   .  Patch           . Delete
+                              
 ------------------------------------------------------------------
  where can be used ?
 . weather app
@@ -52,8 +61,128 @@ OPTIONS:   PERFORM
    ANY :   HANDLE
          can handle any HTTP method ( GET,PUT,PATCH...) in backEnd server.
 
+-------------------------------------------------------------------------------------
 
-       
+integreting the API gateway'S with lambda :
+
+lambda:
+  create a fuction  ---->        details                   --->        code section                       ----->     TEST
+                           . fuction name                             can use sample code                            testig beforee before  
+                           . Run time                                 given by AWS                                     we integrare with API gateway
+                           [ ex: python version's ]                [ https://jhooq.com/aws-api-gateway/ ]                 |
+                                                                            |                                        create test event name [  any name ]
+                                                                            |                                          event JSON { as per project }
+                                                                  After click on Deploy                                   [ ex: if we want to fetch data, 
+                                                                                                                                  then only give {} ]
+
+ API gateway: 
+             details 
+              . name
+              . stage name [ currently default ]
+
+API-gateway integrate with lambda:   To integrate API-gateway with lambda ,we need to define route's in api-gateway
+---------------------------------- 
+   
+gateway name:  create -->    request                        
+                              GET   ✅ [using this now]    , [ / ] -->  [ create] ---->   attach integration --> create & Attach an integration --> Integration target [ lambda fuction ]      - created    
+                              POST                                                                                                                     AWS region ✅     lambda fuction ✅                                       
+                              PUT
+                              PATCH
+                              HEAD
+                              OPTIONS
+                              DELETE
+                              ANY
+
+Q/A: 
+    Now how we gonna access this created APi: for that we need to fin URL
+    now USER need URL to access the gateway
+  . select created api - > invoke URL  -  copy and paste to see results & raw data 
+
+-------------------------------------------------------------------------------------------------------------------------------
+NOTE: 
+                GET  api-gateway access through browser ok
+      PUT,POST,PATCH can not use browser because we need to send a payload ,so we use POSTMAN TOOL [ download s/w ]
+      we just give the URL in postman and search to check output.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+  
+                       HTTP api             REST api
+              
+performance             faster             not too slow 
+cost                    low cost           expensive
+reqts & respo map       not supp           supported
+custom domain           support            support
+simplicity               easy              complex
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+PROXY & NON-PROXY Integration: 
+-----------------------------
+
+-RESTapi:
+
+NON-proxy integration:  
+    . we use now POST : in this we gonna some payload
+ex: 
+  {    key: value      }
+       name: abc                        
+                 once it was send through api-gateway
+--------------------------------------------------------------------
+create lambda fuction for pracice of non-proxy integration 
+
+fuction name: abc
+version: pyhton 3.10
+   | created |                   ----------- do test   in event JSON  [ send the payload ]
+                                                        { 
+                                                           "name": "abc"    [ can modify ] 
+------------------------------------                     }
+ New create a new REST-api,
+         details : 
+                    NEW API
+                    abc [ name ]
+
+         ---|CREATED|--
+
+resource:    /   [ root path]     name: abc      | create ||
+
+create method :
+                    type of api : POST
+                integration type : lambda fution 
+                 
+    ❌  lambda proxy integration [ so it mean we are suing non-proxy integration ]
+    lambda fuction:
+                     select created lambda [ non-proxy one ]
+
+       ---------| create |-------------- ----
+
+----------------- now we can see digitaly the request flow b/w lambda and client ----------------
+
+client -> method request -> integration request -> lambda
+    |                                                 |
+       <-           "         <-          "             <-
+
+modifications
+--------------------------------------------------------------------------
+Edit method request : validate ,query parametres & headers
+
+URL query string parameters
+    name:          required   
+     name           ✅
+
+---save---
+edit integration request: 
+  
+modify template [ this will allow requst body ]
+  
+      content type:  application JSON
+ generate template:  if not added anythign will be default by itself 
+    *template body: changing  rreqwquest modifuation   [ code: modify the request that is comming IN ]
+
+process is that 
+
+create the API in API Gateway, define the routes and HTTP methods, and integrate them with the backend, usually a Lambda function. After testing to verify that the backend returns the correct response without any interruption, I deploy the API to a stage for use and monitor it as needed
+
+
 
 
 
