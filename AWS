@@ -10,6 +10,19 @@ API Gateway:
 
 NOTE:
        An API acts as a messenger that allows different software to communicate with each other and exchange information
+------------------------------------------------------------------------------------------------------------------------------------
+
+interview
+   process: 
+
+    create the API in API Gateway,
+    define the routes and HTTP methods, and integrate them with the backend, usually a Lambda function. 
+    After testing to verify that evrything works perfectly that response from backend without any interruption & correctly , 
+    I deploy the API to a stage for use and monitor.
+
+               api-gateway    ->   define routes & methods -> integrate with backend   ->   test      ->   deploy to stage   -> monitor
+                                                                    |                        |
+                                                                [ lambda]                [ works fine]
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 TYPES:
 
@@ -178,9 +191,8 @@ modify template [ this will allow requst body ]
  generate template:  if not added anythign will be default by itself 
     *template body: changing  rreqwquest modifuation   [ code: modify the request that is comming IN ]
 
-process is that 
+-----------process is that--------------------- 
 
-create the API in API Gateway, define the routes and HTTP methods, and integrate them with the backend, usually a Lambda function. After testing to verify that the backend returns the correct response without any interruption, I deploy the API to a stage for use and monitor it as needed
 
 
 
