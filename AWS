@@ -243,8 +243,15 @@ clinet gave:
 rejected because string value shud give not number
 
 
+--------
+MONITOR:
+--------
+steps:
 
-
+.create IAM role for cloudwatch to push apigateway logs 
+. copy the arn[ IAM ] and pate in api-gateway settings 
+. for each api gateway go to stage section and enable the option for logs 
+. copy the unique ID of ai-gateway and paste in cloudwatch log groups tosee logs 
 
 
 
