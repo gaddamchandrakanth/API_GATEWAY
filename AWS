@@ -21,8 +21,10 @@ interview
     I deploy the API to a stage for use and monitor.
 
                api-gateway    ->   define routes & methods -> integrate with backend   ->   test      ->   deploy to stage   -> monitor
-                                                                    |                        |
-                                                                [ lambda]                [ works fine]
+                                                                    |                        |                  |
+                                                                [ lambda]                [ works fine]      create a new stage also here
+                                                                                                                
+    
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 TYPES:
 
@@ -190,8 +192,65 @@ modify template [ this will allow requst body ]
       content type:  application JSON
  generate template:  if not added anythign will be default by itself 
     *template body: changing  rreqwquest modifuation   [ code: modify the request that is comming IN ]
+---------------------------------------------------------------------------------------------------------------------
+till here & process :
+                       . REST-api  - post api
+                       . lambda fuction created
+                       . edited methods and lambda fuction 
+                       . test                                  
+                       . Deploy API
+                       . copy URL and paste in tool [ postman ]
 
------------process is that--------------------- 
+proxy & non-proxy integration view:
+------------------------------------- 
+
+                                           POST                                                    integration rerquest
+                                     ------------------                                        -------------------------------       
+                                      {                                                         {
+                                        "name": "abc"                                             "name": "prefix_abc"
+                                       }                                                         }
+                                      -----------------                                         -------------------------------
+
+
+CLIENT      ------------------------->         API            --------------------------->         BACKEND [ lambda ]
+            <-------------------------                        <---------------------------
+
+
+                                                                               --------------------------------
+                                                                                 { 
+                                                                                    "name": "testing_prefix_abc"
+                                                                                  ] 
+                                                                                -----------------------------------
+note:   
+once we add this api-gateway to POSTMAN tool there itself w can change name & see response there only  
+ex:  from ABC t0 xyz
+      [ key & value can changed ]
+|------------------------------------------------------------------------|
+    NOTE: 
+          non-poxzy integration :  can modify request & response
+          proxy integration :  can not  
+|------------------------------------------------------------------------|
+         
+
+validator:
+           API Gateway sends request to backend only if client request matches what API Gateway expects. 
+
+ api expects: 
+                name: abc
+clinet gave: 
+                name : 17 [ number]                                ------- success  if given name: xyz[ any name ]
+
+rejected because string value shud give not number
+
+
+
+
+
+
+
+
+
+
 
 
 
