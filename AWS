@@ -1,3 +1,19 @@
+HOW DOES IT WORK's: 
+                    friend need some Data in my Website ?
+
+HTTP api created ---> integrate with backend server ---> test & deploy --> go stages section of created api ---> copy the URL [ invoke  URL ] generated & provide it him to add in his website 
+                              |
+                    { website devoped using which] 
+
+*process* :
+---------
+1. lambda or ec2
+2. HTTP api created
+3. integrate with backend server [ like using whih the website was devoped- lambda or ec2 ]
+4. Test & Deploy
+5. go to stages section of that api
+6. copy the URL [ invoke URL ] generated and giev it to him to use in his website 
+
 ----------------------------------------------------------------------------------------------------------
   * API Gateway is a front door that allows clients to access backend services through the frontend *
 -----------------------------------------------------------------------------------------------------------
@@ -24,7 +40,11 @@ interview
                                                                     |                        |                  |
                                                                 [ lambda]                [ works fine]      create a new stage also here
                                                                                                                 
-    
+
+resource policy: 
+                 who can and who canot use your api  [ REST ,HTTP, WEBSOCKET, PRIVATE ] 
+                                                   
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 TYPES:
 
@@ -253,9 +273,55 @@ steps:
 . for each api gateway go to stage section and enable the option for logs 
 . copy the unique ID of ai-gateway and paste in cloudwatch log groups tosee logs 
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+resource policy: 
+                 who can and who canot use your api  [ REST ,HTTP, WEBSOCKET, PRIVATE ] 
+                                                   
+here we can block the IP to restrcit to use our api :
+----------------------------------------------------
+go to created APi dashboard ---> resource policy ---> create policy [ AWS account list
+                                                                       IP range deny
+                                                                       source VPC allow list ]
 
-duration : 
-1:1:31
+NOTE: 
+. can modify the temolate wich was generated for the deny of cerrtain IP to access the api.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+API-gateway : Authorizers.
+
+ Without authorizer → 
+                      the API is like an open door: anyone can enter if they know the URL.
+
+    With authorizer →
+                       the API is like a locked door: you need a key (token or login) to get in.
+
+----------------------
+│
+▼
+Create a Lambda function  
+│
+▼ 
+Go to API Gateway and select “Authorizer”  &  Add the ARN of the Lambda 
+│
+▼
+Test the Lambda authorizer before attaching it
+│
+▼
+Attach the authorizer to API method integration  &  Deploy the API again
+
+*                                                         *
+----------------------------------------------------------
+AUthoraizer will work for proxy and non-proxy integration
+----------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 
